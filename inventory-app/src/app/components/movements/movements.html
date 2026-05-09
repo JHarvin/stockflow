@@ -1,1 +1,38 @@
-<p>movements works!</p>
+<div class="form-container">
+  <h2>Registrar Movimientos de Inventario</h2>
+  
+  <form [formGroup]="movementForm" (ngSubmit)="onSubmit()" class="movement-form">
+    
+    <mat-form-field appearance="outline">
+      <mat-label>Producto</mat-label>
+      <mat-select formControlName="productId">
+        @for (product of products(); track product.id) {
+          <mat-option [value]="product.id">{{ product.name }} (Stock: {{ product.currentStock }})</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Tipo de Movimiento</mat-label>
+      <mat-select formControlName="type">
+        <mat-option value="IN">Entrada (+)</mat-option>
+        <mat-option value="OUT">Salida (-)</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Cantidad</mat-label>
+      <input matInput type="number" formControlName="quantity">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Motivo</mat-label>
+      <textarea matInput formControlName="reason" placeholder="Ej: Venta, Reabastecimiento..."></textarea>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="movementForm.invalid">
+      Confirmar Operación
+    </button>
+  </form>
+</div>
+

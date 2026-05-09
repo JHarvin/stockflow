@@ -13,7 +13,7 @@ export class InventoryService {
   
   products = signal<Product[]>([]);
   loading = signal<boolean>(false);
-
+//cargar productos
   async loadProducts() {
     this.loading.set(true);
     try {
@@ -24,7 +24,16 @@ export class InventoryService {
     }
   }
 
-  
+  //Registro de movimientos
+async registerMovement(movementData: any) {
+  //  convertir el Observable de HttpClient en una Promesa
+  return firstValueFrom(
+    this.http.post(`${this.apiUrl}/movements`, movementData)
+  );
+}
+
+
+  // para alertas
   async getAlerts() {
     return firstValueFrom(this.http.get<Product[]>(`${this.apiUrl}/alerts`));
   }
