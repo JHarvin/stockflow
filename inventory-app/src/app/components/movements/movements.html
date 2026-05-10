@@ -1,5 +1,5 @@
 <div class="form-container">
-  <h2>Registrar Movimientos de Inventario</h2>
+  <h2>Registrar movimientos de inventario</h2>
   
   <form [formGroup]="movementForm" (ngSubmit)="onSubmit()" class="movement-form">
     
@@ -13,7 +13,7 @@
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-      <mat-label>Tipo de Movimiento</mat-label>
+      <mat-label>Tipo de movimiento</mat-label>
       <mat-select formControlName="type">
         <mat-option value="IN">Entrada (+)</mat-option>
         <mat-option value="OUT">Salida (-)</mat-option>
@@ -31,7 +31,7 @@
     </mat-form-field>
 
     <button mat-raised-button color="primary" type="submit" [disabled]="movementForm.invalid">
-      Confirmar Operación
+      Confirmar operación
     </button>
   </form>
 </div>

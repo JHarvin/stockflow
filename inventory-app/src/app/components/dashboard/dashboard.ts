@@ -33,6 +33,7 @@ export class DashboardComponent implements OnInit {
   }
 
   selectProduct(id: number) {
+    console.log('ID seleccionado:', id);
     this.selectedProductId.set(id);
   }
 }

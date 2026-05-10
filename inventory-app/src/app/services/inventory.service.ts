@@ -17,7 +17,7 @@ export class InventoryService {
   async loadProducts() {
     this.loading.set(true);
     try {
-      const data = await firstValueFrom(this.http.get<Product[]>(`${this.apiUrl}/products`));
+      const data = await firstValueFrom(this.http.get<Product[]>(`${this.apiUrl}/products`));//get
       this.products.set(data);
     } finally {
       this.loading.set(false);
@@ -28,14 +28,19 @@ export class InventoryService {
 async registerMovement(movementData: any) {
   //  convertir el Observable de HttpClient en una Promesa
   return firstValueFrom(
-    this.http.post(`${this.apiUrl}/movements`, movementData)
+    this.http.post(`${this.apiUrl}/movements`, movementData) //post
+  );
+}
+async getHistoryByProduct(productId: number) {
+  // endpoint del api
+  return firstValueFrom(
+    this.http.get<any[]>(`${this.apiUrl}/history/${productId}`)//get
   );
 }
 
-
   // para alertas
   async getAlerts() {
-    return firstValueFrom(this.http.get<Product[]>(`${this.apiUrl}/alerts`));
+    return firstValueFrom(this.http.get<Product[]>(`${this.apiUrl}/alerts`));//get
   }
 }
 

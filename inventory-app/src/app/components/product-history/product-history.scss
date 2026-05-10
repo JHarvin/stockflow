@@ -1,0 +1,33 @@
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.history-item {
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 5px solid #ccc;
+  background: #f9f9f9;
+
+  &.in { 
+    border-left-color: #4caf50; // Verde para entradas
+    .type-badge { color: #4caf50; font-weight: bold; }
+  }
+
+  &.out { 
+    border-left-color: #f44336; // Rojo para salidas
+    .type-badge { color: #f44336; font-weight: bold; }
+  }
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+.date { color: #666; font-style: italic; }
+.reason { margin: 0; color: #333; }
