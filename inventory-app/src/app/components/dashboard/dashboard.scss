@@ -4,3 +4,21 @@
 .critical { border-left: 5px solid red; color: red; }
 .warning { color: red; font-weight: bold; }
 .history-section { margin-top: 30px; border-top: 1px solid #ccc; padding-top: 20px; }
+
+.skeleton-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  background: #f5f5f5;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  
+  p {
+    margin-top: 15px;
+    color: #666;
+    font-weight: 500;
+  }
+}
+
